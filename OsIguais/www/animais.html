@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        
+		
+		
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    	<title>OsIguais</title>
+<style rel="stylesheet">
+*, html, body {
+	margin:0;
+	padding:0;
+	}
+body {
+	background: lightgray;
+	color:black;
+	
+	font:100%/1.4 Arial, sans-serif;
+	}
+.tudo {
+	width:100%; 
+	max-width:60em;
+	padding:1em 2em;
+	margin:0 auto;
+	background:white;
+	}
+h1 {
+	font-size:2.5em;
+	margin: 0.3em 0;
+	}
+h2 {
+	font-size:1.4em;
+	margin: 1em 0 0.3em 0;
+	}
+h3 {
+	font-size:1.2em;
+	margin: 0.3em 0;
+	text-align:center;
+	}
+.box {
+	width:20.5em;
+	}
+
+
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.cf:before,
+.cf:after {content: " ";display: table;}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+.left {float:left;}		
+.right {float:right;}		
+.clear {clear:both;}		
+.center {text-align:center;}		
+
+    </style>
+</head>
+<body onload="mostrar()">
+    <script type="text/javascript">
+        function sairdoapp()
+        {
+            navigator.app.exitApp();
+        }
+
+    </script>        
+
+
+	
+    <center>
+	<div class="tudo">
+<table>
+    <tr>
+    <td>
+			<div id="cart00" style="display:table-cell; vertical-align:middle; text-align:center">
+				<img src="space.gif" height="212">
+			</div>	
+	</td>
+	<td><img src="space.gif" width="20"></td>
+	<td>
+	<div id="perg"><h1><font color=red>ONDE ESTÁ?</font></h1></div>
+	</td>
+	</tr>
+</table>
+<hr>	
+
+	
+	
+	<table>
+	<tr>
+	<td>
+	
+
+			<div id="cart01" style="display:table-cell; vertical-align:middle; text-align:center">
+				<img src="space.gif" height="212" width="150">
+			</div>
+    
+	</td>
+	<td><img src="space.gif" width="20"></td>
+	<td>
+	
+			<div id="cart02" style="display:table-cell; vertical-align:middle; text-align:center">
+				<img src="space.gif" height="212" width="150">
+			</div>
+    
+	</td>
+	
+	</td>
+	<td><img src="space.gif" width="20"></td>
+	<td>
+	
+			<div id="cart03" style="display:table-cell; vertical-align:middle; text-align:center">
+				<img src="space.gif" height="212" width="150">
+			</div>
+    
+	<td><img src="space.gif" width="20"></td>
+	<td>
+	
+	
+			<div id="cart04" style="display:table-cell; vertical-align:middle; text-align:center">
+				<img src="space.gif" height="212" width="150">
+			</div>
+
+
+	
+	</tr>
+
+	<tr><td colspan="9"><img src="space.gif" height="10"></td></tr>
+	
+		
+	
+	<tr><td colspan="9">
+	<p align="right"><button onclick="mostrar()">REINICIAR</button>&nbsp;&nbsp;<a href="index.html"><button>VOLTAR</button></a></p>
+	</td></tr>
+
+</table>
+
+</center>	
+ </div>
+<audio id='playOK' src="OK.mp3"></audio> 
+<audio id='playERRO' src="ERRO.wav"></audio> 
+<audio id="cachorro" src="CACHORRO.mp3"></audio>
+<audio id="gato" src="GATO.mp3"></audio>
+<audio id="vaca" src="VACA.mp3"></audio>
+<audio id="ovelha" src="OVELHA.mp3"></audio>
+<audio id="galo" src="GALO.mp3"></audio>
+<audio id="pato" src="PATO.mp3"></audio>
+
+<div id="msg" style="width:100%; height:100px; position:absolute; z-index:100; top:0%; left:40;">
+
+</div>
+    <script src="func.js"></script>
+
+    <script type="text/javascript">
+
+var query = window.location.search.slice(1);
+	var partes = query.split('&');
+	var data = {};
+	partes.forEach(function (parte) {
+	    var chaveValor = parte.split('=');
+	    var chave = chaveValor[0];
+	    var valor = chaveValor[1];
+	    data[chave] = valor;
+	});
+
+var sorteados = [];
+var onde1=["O CACHORRO","O GATO","O PATO","O GALO","A VACA","A OVELHA"];		
+var ondeft=["cachorro","gato","pato","galo","vaca","ovelha"];		
+    
+function criarUnico(nvezes,valorMaximo) {   
+    for (var i = 0; i < nvezes; i++) {
+	if (sorteados.length == valorMaximo) {
+         sorteado = [];
+    }
+    var sugestao = Math.ceil(Math.random() * valorMaximo)-1; // Escolher um numero ao acaso
+    while (sorteados.indexOf(sugestao) >= 0) {  // Enquanto o numero já existir, escolher outro
+        sugestao = Math.ceil(Math.random() * valorMaximo)-1;
+    }
+    sorteados.push(sugestao); // adicionar este numero à array de numeros sorteados para futura referência
+	}
+}
+
+function testar(num)
+{
+
+ 
+
+ if (num == getcookie("perg")) {
+ var playAudio1 = document.getElementById(ondeft[num]);
+ playAudio1.play(); 
+
+
+ var playAudio2 = document.getElementById("playOK");
+ playAudio2.play(); 
+ var img01="<image src='confeti.gif' height='220'>";
+ document.getElementById("msg").innerHTML ="<center><table><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr></table><hr><h1><A HREF='animais.html'><FONT COLOR=GREEN>PARABÉNS !!!</FONT></a> </center>";
+ 
+ } 
+ else {
+ var playAudio3 = document.getElementById("playERRO");
+ playAudio3.play();
+ 
+ }
+}
+
+
+function mostrar()
+{
+var c001="<img src='space.gif' height='30'><br><br><br><h3>";
+
+sorteados=[];
+criarUnico(1,3);
+var num1=sorteados[0];
+
+
+
+sorteados=[];
+criarUnico(4,6);
+setcookie("perg",sorteados[num1],365);
+document.getElementById("perg").innerHTML = "<center><H1>ONDE ESTÁ...<br><FONT COLOR=RED>"+onde1[sorteados[num1]]+"?</FONT></H1></center>";
+document.getElementById("cart00").innerHTML = "<img src='"+ondeft[sorteados[num1]]+".png'>"; 
+
+
+document.getElementById("cart01").innerHTML = "<a href='javascript:testar("+sorteados[0]+")'><img src='"+ondeft[sorteados[0]]+".png'></a>";
+document.getElementById("cart02").innerHTML = "<a href='javascript:testar("+sorteados[1]+")'><img src='"+ondeft[sorteados[1]]+".png'></a>";
+document.getElementById("cart03").innerHTML = "<a href='javascript:testar("+sorteados[2]+")'><img src='"+ondeft[sorteados[2]]+".png'></a>";
+document.getElementById("cart04").innerHTML = "<a href='javascript:testar("+sorteados[3]+")'><img src='"+ondeft[sorteados[3]]+".png'></a>";
+//document.getElementById("cart04v").innerHTML = c001+nota[sorteados[3]]+"</h1>";
+
+
+}	
+
+
+
+
+app.initialize();
+    </script>
+
+
+		
+		
+		
+		
+		
+    </body>
+</html>
+
