@@ -137,15 +137,15 @@ h3 {
 		
 	
 	<tr><td colspan="9">
-	<p align="right"><button onclick="mostrar()">REINICIAR</button>&nbsp;&nbsp;<a href="index.html"><button>VOLTAR</button></a></p>
+	<p align="right"><button onclick="mostrar()">REINICIAR</button>&nbsp;&nbsp;<a href="index.html"><button>MENU</button></a></p>
 	</td></tr>
 
 </table>
 
 </center>	
  </div>
-<audio id='playOK' src="OK.mp3"></audio> 
-<audio id='playERRO' src="ERRO.wav"></audio> 
+<audio id='playOK' src="ok.mp3"></audio> 
+<audio id='playERRO' src="erro.wav"></audio> 
 <audio id="cachorro" src="CACHORRO.mp3"></audio>
 <audio id="gato" src="GATO.mp3"></audio>
 <audio id="vaca" src="VACA.mp3"></audio>
@@ -173,6 +173,7 @@ var query = window.location.search.slice(1);
 var sorteados = [];
 var onde1=["O CACHORRO","O GATO","O PATO","O GALO","A VACA","A OVELHA"];		
 var ondeft=["cachorro","gato","pato","galo","vaca","ovelha"];		
+
     
 function criarUnico(nvezes,valorMaximo) {   
     for (var i = 0; i < nvezes; i++) {
@@ -200,8 +201,11 @@ function testar(num)
  var playAudio2 = document.getElementById("playOK");
  playAudio2.play(); 
  var img01="<image src='confeti.gif' height='220'>";
- document.getElementById("msg").innerHTML ="<center><table><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr></table><hr><h1><A HREF='animais.html'><FONT COLOR=GREEN>PARABÉNS !!!</FONT></a> </center>";
- 
+ document.getElementById("msg").innerHTML ="<center><table><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr></table><hr><h1><A HREF='' onclick='mostrar()'><FONT COLOR=GREEN>PARABÉNS !!!</FONT></a> </center>";
+ setTimeout(function () {
+      mostrar();
+   }, 3000);
+
  } 
  else {
  var playAudio3 = document.getElementById("playERRO");
@@ -224,6 +228,7 @@ var num1=sorteados[0];
 sorteados=[];
 criarUnico(4,6);
 setcookie("perg",sorteados[num1],365);
+document.getElementById("msg").innerHTML = "";
 document.getElementById("perg").innerHTML = "<center><H1>ONDE ESTÁ...<br><FONT COLOR=RED>"+onde1[sorteados[num1]]+"?</FONT></H1></center>";
 document.getElementById("cart00").innerHTML = "<img src='"+ondeft[sorteados[num1]]+".png'>"; 
 

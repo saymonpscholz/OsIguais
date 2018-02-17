@@ -140,24 +140,16 @@ h3 {
 		
 	
 	<tr><td colspan="9">
-	<p align="right"><button onclick="mostrar()">REINICIAR</button>&nbsp;&nbsp;<a href="index.html"><button>VOLTAR</button></a></p>
+	<p align="right"><button onclick="mostrar()">REINICIAR</button>&nbsp;&nbsp;<a href="index.html"><button>MENU</button></a></p>
 	</td></tr>
 
 </table>
 
 </center>	
  </div>
-<audio id='playOK'>
-  <source src="OK.mp3" type="audio/mpeg">
-  <source src="OK.ogg" type="audio/ogg">
-  Your browser does not support this audio format.
-</audio> 
+<audio id='playOK' src="ok.mp3"></audio> 
 
-<audio id='playERRO'>
-  <source src="ERRO.wav" type="audio/mpeg">
-  <source src="ERRO.ogg" type="audio/ogg">
-  Your browser does not support this audio format.
-</audio> 
+<audio id='playERRO' src="erro.wav"></audio> 
 <div id="msg" style="width:100%; height:100px; position:absolute; z-index:100; top:0%; left:40;">
 
 </div>
@@ -178,6 +170,8 @@ var query = window.location.search.slice(1);
 var sorteados = [];
 var onde1=["O SAMUEL","O PAPAI","A MAMÃE","A VOVÓ"];		
 var ondeft=["samuel","pai","mami","vov1"];		
+
+
     
 function criarUnico(nvezes,valorMaximo) {   
     for (var i = 0; i < nvezes; i++) {
@@ -198,8 +192,10 @@ function testar(num)
  var playAudio = document.getElementById("playOK");
  playAudio.play(); 
  var img01="<image src='confeti.gif' height='220'>";
- document.getElementById("msg").innerHTML ="<center><table><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr></table><hr><h1><A HREF='fam.html'><FONT COLOR=GREEN>PARABÉNS !!!</FONT></a> </center>";
- 
+ document.getElementById("msg").innerHTML ="<center><table><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr><tr><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td><td>"+img01+"</td></tr></table><hr><h1><A HREF='' onclick='mostrar()'><FONT COLOR=GREEN>PARABÉNS !!!</FONT></a> </center>";
+  setTimeout(function () {
+      mostrar();
+   }, 3000);
  } 
  else {
  var playAudio = document.getElementById("playERRO");
@@ -216,6 +212,7 @@ var c001="<img src='space.gif' height='30'><br><br><br><h3>";
 sorteados=[];
 criarUnico(1,4);
 setcookie("perg",sorteados[0],365);
+document.getElementById("msg").innerHTML = "";
 document.getElementById("perg").innerHTML = "<center><H1>ONDE ESTÁ...<br><FONT COLOR=RED>"+onde1[sorteados[0]]+"?</FONT></H1></center>";
 document.getElementById("cart00").innerHTML = "<img src='"+ondeft[sorteados[0]]+".jpg'>";
 

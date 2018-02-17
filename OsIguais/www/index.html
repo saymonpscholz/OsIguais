@@ -69,6 +69,12 @@ h3 {
         {
             navigator.app.exitApp();
         }
+		
+		function fullScreen(theURL) {
+           if (theURL == "animais.html") {document.getElementById('pato').play()} else {document.getElementById('ok').play()}
+           window.open(theURL, '', 'fullscreen=yes, scrollbars=no');
+
+        }
 
     </script>        
 
@@ -98,17 +104,9 @@ h3 {
 <hr><br>
 <center><button onclick="sairdoapp()">SAIR DOS IGUAIS</button></center><br>	<hr>
 
-<audio id='playOK'>
-  <source src="OK.mp3" type="audio/mpeg">
-  <source src="OK.ogg" type="audio/ogg">
-  Your browser does not support this audio format.
-</audio> 
+<audio id='ok' src="ok.mp3"></audio> 
 
-<audio id='playPATO'>
-  <source src="PATO.mp3" type="audio/mpeg">
-  <source src="PATO.ogg" type="audio/ogg">
-  Your browser does not support this audio format.
-</audio> 
+<audio id='pato' src="PATO.mp3"></audio> 
 		
     </body>
 </html>
