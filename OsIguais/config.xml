@@ -2,11 +2,16 @@
 <widget id="com.saymonpscholz.osiguais" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>OsIguais</name>
     <description>
-        A blank PhoneGap app.
+        Ferramenta para Terapeutas em ABA
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="saymonpscholz@gmail.com" href="http://facebook.com/saymon.possenti">
+        Saymon Possenti
     </author>
     <content src="index.html" />
     <access origin="*" />
+    <icon platform="android" src="package-assets/01-36x36.png" density="ldpi" width="36" height="36"/>
+    <icon platform="android" src="package-assets/02-48x48.png" density="mdpi" width="48" height="48"/>
+    <icon platform="android" src="package-assets/03-72x72.png" density="hdpi" width="72" height="72"/>
+    <icon platform="android" src="package-assets/04-96x96.png" density="xhdpi" width="96" height="96"/>
+
 </widget>
